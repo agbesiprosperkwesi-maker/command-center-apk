@@ -81,16 +81,18 @@ begin
     raise exception 'Only admins or coordinators can create the daily checklist';
   end if;
   insert into public.daily_tasks(task_date,title,category) values
-    (current_date,'Review priorities and outstanding actions','Daily operations'),
-    (current_date,'Follow up on sponsor pledges and pending responses','Funding'),
-    (current_date,'Check in with team leads and volunteers','Team coordination'),
-    (current_date,'Review flyer and campaign-material distribution','Outreach materials'),
-    (current_date,'Contact assigned students who may be contacted','Contact follow-up'),
-    (current_date,'Check in with all six polling-station coordinators','Station readiness'),
-    (current_date,'Review transport and logistics requests','Logistics'),
-    (current_date,'Confirm upcoming meetings and assigned actions','Meetings'),
-    (current_date,'Review new issues and assign follow-up','Operations'),
-    (current_date,'Submit end-of-day progress update','Daily reporting')
+    (current_date,'Review campaign priorities and team updates','Daily operations'),
+    (current_date,'Morning briefing','Daily operations'),
+    (current_date,'Follow up on sponsors and outstanding pledges','Finance'),
+    (current_date,'Call assigned students and record outcomes','Student outreach'),
+    (current_date,'Visit assigned student hostels and update visit status','Student outreach'),
+    (current_date,'Check faculty, department and student availability','Student outreach'),
+    (current_date,'Follow up with volunteers and station coordinators','Team coordination'),
+    (current_date,'Review flyer distribution and campaign materials','Publicity'),
+    (current_date,'Confirm transport and logistics requirements','Logistics'),
+    (current_date,'Review polling-agent assignments and readiness','Station readiness'),
+    (current_date,'Submit the end-of-day progress report','Evening review'),
+    (current_date,'End-of-day notes','Evening review')
   on conflict(task_date,title) do nothing;
 end; $$;
 grant execute on function public.ensure_daily_checklist() to authenticated;
@@ -123,19 +125,18 @@ begin
     raise exception 'Only admins or coordinators can create the daily checklist';
   end if;
   insert into public.daily_tasks(task_date,title,category) values
-    (current_date,'Review priorities and outstanding actions','Daily operations'),
-    (current_date,'Follow up on sponsor pledges and pending responses','Funding'),
-    (current_date,'Check in with team leads and volunteers','Team coordination'),
-    (current_date,'Review flyer and campaign-material distribution','Outreach materials'),
-    (current_date,'Contact assigned students who may be contacted','Contact follow-up'),
-    (current_date,'Record call outcomes and schedule follow-ups','Contact follow-up'),
-    (current_date,'Visit assigned student hostels and update visit status','Hostel outreach'),
-    (current_date,'Check faculty, department and campus availability','Student outreach'),
-    (current_date,'Check in with all six polling-station coordinators','Station readiness'),
-    (current_date,'Review transport and logistics requests','Logistics'),
-    (current_date,'Confirm upcoming meetings and assigned actions','Meetings'),
-    (current_date,'Review new issues and assign follow-up','Operations'),
-    (current_date,'Submit end-of-day progress update','Daily reporting')
+    (current_date,'Review campaign priorities and team updates','Daily operations'),
+    (current_date,'Morning briefing','Daily operations'),
+    (current_date,'Follow up on sponsors and outstanding pledges','Finance'),
+    (current_date,'Call assigned students and record outcomes','Student outreach'),
+    (current_date,'Visit assigned student hostels and update visit status','Student outreach'),
+    (current_date,'Check faculty, department and student availability','Student outreach'),
+    (current_date,'Follow up with volunteers and station coordinators','Team coordination'),
+    (current_date,'Review flyer distribution and campaign materials','Publicity'),
+    (current_date,'Confirm transport and logistics requirements','Logistics'),
+    (current_date,'Review polling-agent assignments and readiness','Station readiness'),
+    (current_date,'Submit the end-of-day progress report','Evening review'),
+    (current_date,'End-of-day notes','Evening review')
   on conflict(task_date,title) do nothing;
 end; $$;
 
