@@ -1,0 +1,2 @@
+full_name,student_id,phone,faculty,department,programme,level,voter_group,campus_status,hostel_visit_status,hostel_visit_date,station,assigned_caller,follow_up_date
+Example Student,REPLACE-WITH-AUTHORISED-ID,,Faculty name,Department name,Programme name,L300,L300,Around,Not visited,,FBMS,Team member,
