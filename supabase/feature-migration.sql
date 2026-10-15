@@ -16,6 +16,8 @@ create table if not exists public.daily_tasks (
 );
 
 alter table public.stations add column if not exists target_votes integer not null default 0;
+alter table public.stations add column if not exists actual_votes integer not null default 0;
+alter table public.stations add column if not exists result_status text not null default 'Pending' check(result_status in ('Pending','Ahead','Behind','Won','Lost'));
 
 insert into public.stations(name,target_votes) values
   ('FBMS',1000),
