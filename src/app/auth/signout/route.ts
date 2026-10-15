@@ -1,2 +1,10 @@
-import {createClient} from '@/lib/supabase/server';import {NextResponse} from 'next/server';
-export async function POST(request:Request){const s=await createClient();await s.auth.signOut();return NextResponse.redirect(new URL('/login',request.url),{status:303});}
+import {createClient} from '@/lib/supabase/server';
+import {NextResponse} from 'next/server';
+
+export const dynamic = 'force-dynamic';
+
+export async function POST(request: Request) {
+  const s = await createClient();
+  await s.auth.signOut();
+  return NextResponse.redirect(new URL('/login', request.url), { status: 303 });
+}

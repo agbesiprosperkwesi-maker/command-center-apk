@@ -17,6 +17,17 @@ create table if not exists public.daily_tasks (
 
 alter table public.stations add column if not exists target_votes integer not null default 0;
 
+insert into public.stations(name,target_votes) values
+  ('FBMS',1000),
+  ('FAST A',1500),
+  ('FAST B',1000),
+  ('FOE',1000),
+  ('FBNE',1000),
+  ('FHAS',1000)
+on conflict(name) do update set target_votes = excluded.target_votes;
+
+alter table public.stations add column if not exists target_votes integer not null default 0;
+
 create table if not exists public.students (
   id uuid primary key default gen_random_uuid(),
   student_id text not null unique,

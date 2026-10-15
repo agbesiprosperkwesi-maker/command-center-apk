@@ -4,27 +4,42 @@ This package updates the Next.js application, not the separate browser-only HTML
 
 ## 1. Apply the database update
 
-1. Open the Supabase project used by `https://team-apk-command-center.vercel.app`.
+1. Open the Supabase project used by the Vercel app.
 2. Open **SQL Editor** and create a new query.
 3. Open `supabase/feature-migration.sql` from this project, copy the entire file into SQL Editor, and run it once.
 4. Confirm the result says success. Do not disable row-level security and do not put a service-role key in Vercel's `NEXT_PUBLIC_` variables.
+5. If you still see `Could not find the table 'public.daily_tasks'` in the schema cache, re-run the migration and confirm `public.daily_tasks`, `public.students`, `public.call_logs`, `public.team_members`, `public.transport_requests`, and `public.incidents` exist in the database explorer.
 
 This migration adds shared daily tasks, student call history and outreach fields, team members, transport requests, and incident records. It keeps records blank; import only authorised student records.
 
-## 2. Publish the updated code
+## 2. Required Vercel environment variables
 
-The GitHub integration available to this session could not see the configured repository (repository search returned no connected repositories and file requests returned 404). Therefore, no live deployment has been made from this session.
+Add these in the Vercel project dashboard under Project > Settings > Environment Variables:
+
+- `NEXT_PUBLIC_SUPABASE_URL` = your Supabase project URL
+- `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` = anon/public key
+- `SUPABASE_SERVICE_ROLE_KEY` = service-role key only for server-side/admin operations; never expose in browser code
+- `TWILIO_ACCOUNT_SID` = Twilio account ID (optional, only if SMS is enabled)
+- `TWILIO_AUTH_TOKEN` = Twilio auth token (optional, only if SMS is enabled)
+- `TWILIO_FROM_NUMBER` = Twilio sending number, e.g. `+1234567890` (optional, only if SMS is enabled)
+- `TELEGRAM_BOT_TOKEN` = Telegram bot token from BotFather (optional, free alerts)
+- `TELEGRAM_CHAT_ID` = Telegram target chat ID (group or user chat ID; optional, free alerts)
+
+A matching example file is available in `.env.example`.
+
+## 3. Publish the updated code
 
 Use the existing repository connected to Vercel:
 
 - Replace/update the project files with the contents of this package, keeping the folder structure.
 - Commit and push to the deployment branch (normally `main`).
 - Wait for Vercel's deployment to finish; open the deployment log and ensure the build succeeds.
+- Confirm all required environment variables exist in Vercel.
 - Keep the existing environment variables `NEXT_PUBLIC_SUPABASE_URL` and `NEXT_PUBLIC_SUPABASE_PUBLISHABLE_KEY` set to the correct Supabase project.
 
-Do not upload `.env` files or any service-role/secret key.
+Do not upload `.env` files or any service-role/secret key to GitHub.
 
-## 3. Verify live behaviour
+## 4. Verify live behaviour
 
 Sign in as an authorised admin and check:
 
@@ -36,10 +51,16 @@ Sign in as an authorised admin and check:
 - Team, transport, incident registers and CSV exports.
 - A second authorised account sees the same records, according to its role permissions.
 
-## 4. Notifications limitation
+## 5. Notifications
 
-The app shows live in-app reminders and can request browser notifications while the site is open. True push notifications while the browser is closed need a push provider/service-worker setup and credentials; do not describe those as enabled until configured and tested.
+The app supports:
 
-## 5. Countdown
+- Browser notifications while the page is open and permission is granted
+- Telegram bot notifications when `TELEGRAM_BOT_TOKEN` and `TELEGRAM_CHAT_ID` are added to Vercel
+- Twilio SMS when `TWILIO_*` values are added to Vercel
+
+Use Telegram for free alert delivery and Twilio only when you need paid SMS delivery.
+
+## 6. Countdown
 
 The dashboard counts down to 24 October 2026 using the viewer's local device time. Verify it on the deployed HTTPS site.
