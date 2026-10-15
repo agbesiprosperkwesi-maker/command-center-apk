@@ -82,8 +82,8 @@ begin
   end if;
   insert into public.daily_tasks(task_date,title,category) values
     (current_date,'Review campaign priorities and team updates','Daily operations'),
-    (current_date,'Morning briefing','Daily operations'),
-    (current_date,'Follow up on sponsors and outstanding pledges','Finance'),
+    (current_date,'Morning briefing and team roll-call','Daily operations'),
+    (current_date,'Check sponsor updates and outstanding pledges','Finance'),
     (current_date,'Call assigned students and record outcomes','Student outreach'),
     (current_date,'Visit assigned student hostels and update visit status','Student outreach'),
     (current_date,'Check faculty, department and student availability','Student outreach'),
@@ -91,7 +91,12 @@ begin
     (current_date,'Review flyer distribution and campaign materials','Publicity'),
     (current_date,'Confirm transport and logistics requirements','Logistics'),
     (current_date,'Review polling-agent assignments and readiness','Station readiness'),
+    (current_date,'Check volunteer attendance and coverage gaps','Team coordination'),
+    (current_date,'Confirm finance and expenditure updates','Finance'),
+    (current_date,'Review logistics and staffing risks for the day','Logistics'),
     (current_date,'Submit the end-of-day progress report','Evening review'),
+    (current_date,'Log incidents and escalate urgent issues','Risk review'),
+    (current_date,'Close out the day and plan tomorrow''s priorities','Evening review'),
     (current_date,'End-of-day notes','Evening review')
   on conflict(task_date,title) do nothing;
 end; $$;
@@ -126,8 +131,8 @@ begin
   end if;
   insert into public.daily_tasks(task_date,title,category) values
     (current_date,'Review campaign priorities and team updates','Daily operations'),
-    (current_date,'Morning briefing','Daily operations'),
-    (current_date,'Follow up on sponsors and outstanding pledges','Finance'),
+    (current_date,'Morning briefing and team roll-call','Daily operations'),
+    (current_date,'Check sponsor updates and outstanding pledges','Finance'),
     (current_date,'Call assigned students and record outcomes','Student outreach'),
     (current_date,'Visit assigned student hostels and update visit status','Student outreach'),
     (current_date,'Check faculty, department and student availability','Student outreach'),
@@ -135,7 +140,12 @@ begin
     (current_date,'Review flyer distribution and campaign materials','Publicity'),
     (current_date,'Confirm transport and logistics requirements','Logistics'),
     (current_date,'Review polling-agent assignments and readiness','Station readiness'),
+    (current_date,'Check volunteer attendance and coverage gaps','Team coordination'),
+    (current_date,'Confirm finance and expenditure updates','Finance'),
+    (current_date,'Review logistics and staffing risks for the day','Logistics'),
     (current_date,'Submit the end-of-day progress report','Evening review'),
+    (current_date,'Log incidents and escalate urgent issues','Risk review'),
+    (current_date,'Close out the day and plan tomorrow''s priorities','Evening review'),
     (current_date,'End-of-day notes','Evening review')
   on conflict(task_date,title) do nothing;
 end; $$;
