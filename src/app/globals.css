@@ -52,7 +52,32 @@ button { cursor:pointer; }
 .btn:hover { transform:translateY(-1px); box-shadow:0 8px 18px rgba(36,99,235,.12); }
 .btn:disabled { opacity:.6; cursor:not-allowed; transform:none; box-shadow:none; }
 .btn.primary { background:linear-gradient(135deg,var(--blue),#1a4dbc); border-color:transparent; color:#fff; box-shadow:0 10px 22px rgba(36,99,235,.22); }
+.btn.subtle { background:#f3f7ff; border-color:#dfeaff; color:#234a95; }
 .toolbar { display:flex; gap:10px; flex-wrap:wrap; align-items:center; }
+.overview-card { display:flex; flex-direction:column; gap:12px; }
+.overview-header { display:flex; align-items:flex-start; justify-content:space-between; gap:12px; }
+.overview-header h3 { margin:0; font-size:18px; letter-spacing:-.03em; }
+.overview-header p { margin:6px 0 0; font-size:13px; color:var(--muted); }
+.station-list { display:flex; flex-direction:column; gap:8px; }
+.station-row {
+  display:flex; align-items:center; justify-content:space-between; gap:12px;
+  padding:10px 0; border-top:1px solid var(--border);
+}
+.station-row:first-child { border-top:none; padding-top:0; }
+.station-main strong { display:block; font-size:15px; letter-spacing:-.01em; }
+.station-main .muted { margin-top:4px; font-size:12px; }
+.status-pill {
+  display:inline-flex; align-items:center; justify-content:center; min-width:92px; padding:7px 12px;
+  border-radius:999px; font-size:11px; font-weight:800; letter-spacing:.02em; border:1px solid transparent;
+}
+.status-pill.success { background:#dff8ee; color:#118756; }
+.status-pill.warning { background:#f7ebcf; color:#9e6d1a; }
+.total-strip {
+  display:flex; align-items:center; justify-content:space-between; gap:12px; padding-top:12px; border-top:1px solid var(--border);
+  font-size:13px; color:var(--text);
+}
+.total-strip span { color:#102d61; font-weight:800; }
+.overview-actions { margin-top:auto; }
 .tablewrap { border:1px solid var(--border); border-radius:12px; background:#fff; overflow:auto; margin-top:12px; }
 .tablewrap table { width:100%; min-width:760px; border-collapse:collapse; }
 .tablewrap thead th { background:#f8faff; color:#38537d; font-size:11px; letter-spacing:.08em; text-transform:uppercase; padding:12px 10px; text-align:left; border-bottom:1px solid var(--border); }
@@ -144,6 +169,10 @@ input[type='checkbox'] { accent-color:var(--blue); }
   .stats { gap:10px; }
   .card { padding:14px; border-radius:18px; }
   .metric { font-size:21px; }
+  .overview-header { flex-direction:column; align-items:flex-start; }
+  .station-row { align-items:flex-start; }
+  .status-pill { min-width:78px; padding:7px 10px; }
+  .total-strip { font-size:12px; }
   .auth { margin:0; padding:14px; }
   .auth .card { padding:22px 16px 18px; border-radius:20px; }
   .auth h1 { font-size:24px; }
