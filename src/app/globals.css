@@ -12,32 +12,32 @@ a { text-decoration:none; }
 button,input,select,textarea { font:inherit; }
 button { cursor:pointer; }
 
-.shell { min-height:100vh; display:flex; align-items:stretch; }
+.shell { min-height:100vh; display:flex; align-items:stretch; background:linear-gradient(180deg,#f5f8ff 0%,#edf3ff 100%); }
 .sidebar {
   position: sticky; top: 0; align-self: flex-start; flex: 0 0 250px; width: 250px; min-height: 100vh;
   display:flex; flex-direction:column; background:linear-gradient(180deg,#102d61 0%,#0f2349 100%); color:#eaf1ff;
-  padding:24px 16px; box-shadow:12px 0 30px rgba(16,45,97,.12); overflow:hidden;
+  padding:24px 16px; box-shadow:12px 0 30px rgba(16,45,97,.14); overflow:hidden; border-right:1px solid rgba(255,255,255,.05);
 }
 .brand { display:flex; gap:12px; align-items:center; margin:0 0 28px; padding:4px 6px; flex-shrink:0; }
 .mark { width:42px; height:42px; background:linear-gradient(135deg,#fff,#dfeaff); color:#1649b9; border-radius:13px; display:grid; place-items:center; font-weight:900; box-shadow:0 10px 24px rgba(255,255,255,.12); }
 .brand strong { font-size:15px; letter-spacing:-.02em; }
 .brand small { display:block; color:#b8caeb; font-size:10px; margin-top:3px; letter-spacing:.12em; text-transform:uppercase; }
 .sidebar nav { display:flex; flex-direction:column; gap:4px; flex:1; min-height:0; overflow-y:auto; padding-right:2px; }
-.navlink { display:flex; align-items:center; gap:10px; padding:11px 12px; color:#d5e1f5; text-decoration:none; border-radius:10px; margin:3px 0; transition:all .2s ease; border:1px solid transparent; }
+.navlink { display:flex; align-items:center; gap:10px; padding:11px 12px; color:#d5e1f5; text-decoration:none; border-radius:12px; margin:3px 0; transition:all .2s ease; border:1px solid transparent; font-weight:600; }
 .navlink:hover { background:rgba(255,255,255,.06); border-color:rgba(255,255,255,.06); color:#fff; }
 .navlink.active { background:linear-gradient(135deg,#234d9d,#1e5cc9); color:#fff; box-shadow:0 10px 24px rgba(36,99,235,.22); border-color:rgba(255,255,255,.08); }
 .sidebarfoot { margin-top:auto; padding-top:14px; border-top:1px solid rgba(255,255,255,.12); font-size:11px; color:#a9bee3; line-height:1.5; flex-shrink:0; }
 .main { flex:1 1 auto; min-width:0; display:flex; flex-direction:column; }
-.topbar { position:sticky; top:0; z-index:20; background:rgba(255,255,255,.92); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:20px 30px; display:flex; justify-content:space-between; align-items:center; }
-.topbar h1 { font-size:20px; margin:3px 0; }
+.topbar { position:sticky; top:0; z-index:20; background:rgba(255,255,255,.85); backdrop-filter:blur(12px); border-bottom:1px solid var(--border); padding:20px 30px; display:flex; justify-content:space-between; align-items:center; }
+.topbar h1 { font-size:20px; margin:3px 0; letter-spacing:-.03em; }
 .muted,.label { color:var(--muted); }
 .content { width:100%; max-width:1450px; margin:0 auto; padding:28px 30px; }
-.welcome { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:18px; padding:4px 2px; }
-.welcome h2 { margin:0 0 6px; font-size:24px; }
+.welcome { display:flex; justify-content:space-between; gap:16px; align-items:center; margin-bottom:18px; padding:8px 2px; }
+.welcome h2 { margin:0 0 6px; font-size:24px; letter-spacing:-.04em; }
 .welcome p { margin:0; }
 .grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(210px,1fr)); gap:16px; }
 .grid.stats { grid-template-columns:repeat(auto-fit,minmax(170px,1fr)); margin-bottom:18px; }
-.card { background:linear-gradient(180deg,#ffffff 0%,#fdfefe 100%); border:1px solid var(--border); border-radius:16px; padding:18px; box-shadow:0 12px 28px rgba(16,45,97,.04); transition:box-shadow .2s ease, transform .2s ease; overflow:hidden; border-top:3px solid rgba(36,99,235,.14); }
+.card { background:linear-gradient(180deg,#ffffff 0%,#fdfefe 100%); border:1px solid var(--border); border-radius:18px; padding:18px; box-shadow:0 12px 28px rgba(16,45,97,.04); transition:box-shadow .2s ease, transform .2s ease; overflow:hidden; border-top:3px solid rgba(36,99,235,.14); }
 .card:hover { box-shadow:0 18px 34px rgba(16,45,97,.08); transform:translateY(-1px); }
 .card h3 { margin:0 0 10px; font-size:16px; }
 .card p { margin:0; }
@@ -131,7 +131,7 @@ input[type='checkbox'] { accent-color:var(--blue); }
   .sidebar nav::-webkit-scrollbar { display:none; }
   .navlink {
     white-space:nowrap; padding:9px 12px; margin:0; border-radius:999px; border:1px solid rgba(255,255,255,.08);
-    background:rgba(255,255,255,.04);
+    background:rgba(255,255,255,.04); font-size:12px; font-weight:600;
   }
   .navlink.active { box-shadow:inset 0 0 0 1px rgba(255,255,255,.08); }
   .main { min-width:0; }
