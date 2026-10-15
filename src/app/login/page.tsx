@@ -59,12 +59,12 @@ export default function Login() {
             <input type="password" required minLength={8} value={password} onChange={e => setPassword(e.target.value)} />
           </div>
 
-          <button className="btn primary" disabled={busy} style={{ width: '100%' }}>
+          <button type="submit" className="btn primary" disabled={busy} style={{ width: '100%' }}>
             {busy ? 'Signing in...' : 'Sign in'}
           </button>
         </form>
 
-        <button className="btn" disabled={busy || !email || password.length < 8} onClick={signUp} style={{ width: '100%', marginTop: 9 }}>
+        <button type="button" className="btn" disabled={busy || !email || password.length < 8} onClick={signUp} style={{ width: '100%', marginTop: 9 }}>
           Request account
         </button>
 
