@@ -144,6 +144,7 @@ export default function FinalResultsClient() {
             {rows.map((row) => {
               const delta = Number(row.actual_votes || 0) - Number(row.target_votes || 0);
               const status = row.result_status || (delta >= 0 ? 'Won' : 'Lost');
+              const badgeClass = status === 'Won' ? 'green' : status === 'Lost' ? 'warn' : 'neutral';
 
               return (
                 <div className="card" key={row.name}>
@@ -152,7 +153,7 @@ export default function FinalResultsClient() {
                       <div className="label">Polling station</div>
                       <h3 style={{ marginTop: 6 }}>{row.name}</h3>
                     </div>
-                    <span className={`badge ${status === 'Won' ? 'green' : ''}`}>{status}</span>
+                    <span className={`badge ${badgeClass}`}>{status}</span>
                   </div>
 
                   <div className="field">
