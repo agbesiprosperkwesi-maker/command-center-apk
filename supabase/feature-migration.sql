@@ -15,6 +15,8 @@ create table if not exists public.daily_tasks (
   unique(task_date,title)
 );
 
+alter table public.stations add column if not exists target_votes integer not null default 0;
+
 create table if not exists public.students (
   id uuid primary key default gen_random_uuid(),
   student_id text not null unique,
